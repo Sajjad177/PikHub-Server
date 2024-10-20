@@ -1,8 +1,10 @@
 import express from "express";
 import cors from "cors";
+import { connectCloudinary } from "./config/cloudinary";
 
 // config ->
 const app = express();
+connectCloudinary()
 
 // Middlewares -->
 app.use(express.json());
