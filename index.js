@@ -1,6 +1,11 @@
 import express from "express";
 import cors from "cors";
-import { connectCloudinary } from "./config/cloudinary";
+import { connectCloudinary } from "./config/cloudinary.js";
+import { userRoute } from "./routes/userRoute.js";
+import { productRouter } from "./routes/productRoute.js";
+
+
+
 
 // config ->
 const app = express();
@@ -17,6 +22,11 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
+
+
+//router --> 
+app.use("/api/user", userRoute)
+app.use("/api/product",productRouter)
 
 // api end-points
 app.get("/", (req, res) => {
